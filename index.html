@@ -1,1 +1,90 @@
-Hello World!
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote</title>
+
+    <style>
+
+        .widget {
+            padding: 5px 5px ;
+            color: #000000;
+            text-align: center;
+                max-width: 95%;
+            margin: auto;
+            font-variant-caps: petite-caps;
+            font-size: 2em;
+
+        }
+
+        div {
+             width: 95%;
+             min-height: 100px;
+
+            background:
+                linear-gradient(to right, black 4px, transparent 4px) 0 0,
+                linear-gradient(to right, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 100%,
+                linear-gradient(to bottom, black 4px, transparent 4px) 0 0,
+                linear-gradient(to bottom, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to top, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to top, black 4px, transparent 4px) 100% 100%;
+
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+}
+
+     
+    </style>
+</head>
+<body>
+
+    <div class="widget" id="widget"></div>
+
+
+<script>
+
+quotes=["I went to the woods because I wished to live deliberately, to front only the essential facts of life, and see if I could not learn what it had to teach, and not, when I came to die, discover that I had not lived." — Henry David Thoreau, Walden",
+  "If you felt yourself sufficient, it would have been proof that you were not. — C.S. Lewis, Prince Caspian",
+  "I'm on Aslan's side even if there isn't any Aslan to lead it. I'm going to live as like a Narnian as I can even if there isn't any Narnia. — C.S. Lewis, the Silver Chair",
+  "Once a king or queen of Narnia, always a king or queen of Narnia. — C.S. Lewis, the Lion, the Witch and the Wardrobe",
+  "The old gods may be great, but they are neither kind nor merciful. They are fickle, unsteady as moonlight on water, or shadows in a storm. If you insist on calling them, take heed: be careful what you ask for, be willing to pay the price. And no matter how desperate or dire, never pray to the gods that answer after dark. - V.E. Schwab, the invisible life of Addie LaRue",
+  "Be yourself; everybody else is already taken. - Oscar Wilde",
+  "To live is the rarest thing in the world. Most people exist, that is all. ― Oscar Wilde",
+  "If one cannot enjoy reading a book over and over again, there is no use in reading it at all. - Oscar Wilde",
+  "I never travel without my diary. One should always have something sensational to read in the train. ― Oscar Wilde, The Importance of Being Earnest",
+  "The only way to get rid of temptation is to yield to it. ― Oscar Wilde, The Picture of Dorian Gray",
+  "We are all in the gutter, but some of us are looking at the stars. - Oscar Wilde",
+  "The question isn't whether magic is real. It's whether I can touch it without being consumed by it. ― Victoria Lee, A Lesson in Vengeance",
+  "It’s not the whole truth. The whole truth is, I’m in love with him still. ― M.L. Rio, If We Were Villains",
+  "I don't know, it's like I look at you and suddenly the sonnets makes sense. The good ones, anyway. ― M.L. Rio, If We Were Villains",
+  "Books, she has found, are a way to live a thousand lives--or to find strength in a very long one. ― V.E. Schwab, The Invisible Life of Addie LaRue",
+  "What is a person, if not the marks they leave behind? ― V.E. Schwab, The Invisible Life of Addie LaRue",
+  "What doesn't kill me better run. ― Leigh Bardugo, Six of Crows (Kaz)",
+];
+
+const INTERVAL = 86400000;
+
+function dispalyQuote(){
+
+    document.getElementById('widget').innerHTML =quotes[0];
+    quotes.forEach((quote, i) => {
+        setTimeout(() => {
+            document.getElementById('widget').innerHTML =quote;
+        }, i * INTERVAL);  
+    });
+    }
+
+    function dispalyWidget() {
+        dispalyQuote();
+        setTimeout(dispalyWidget, quotes.length*INTERVAL);
+    }
+    dispalyWidget()
+
+</script>
+
+</body>
+</html>
