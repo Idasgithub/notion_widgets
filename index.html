@@ -66,11 +66,11 @@ quotes=["I went to the woods because I wished to live deliberately, to front onl
   "What doesn't kill me better run. ― Leigh Bardugo, Six of Crows [Kaz]",
 ];
 
-const INTERVAL = 86400000;
+const INTERVAL = 10000; // 86400000;
 
 function dispalyQuote(){
 
-    document.getElementById('widget').innerHTML =quotes[0:];
+    document.getElementById('widget').innerHTML =quotes[0];
     quotes.forEach((quote, i) => {
         setTimeout(() => {
             document.getElementById('widget').innerHTML =quote;
