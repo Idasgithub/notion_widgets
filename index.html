@@ -66,7 +66,7 @@ quotes=["I went to the woods because I wished to live deliberately, to front onl
   "What doesn't kill me better run. ― Leigh Bardugo, Six of Crows [Kaz]",
 ];
 
-const INTERVAL = 1000; // orginalet var 86400000 vilket motsvarar 24h, men då den börjar om varje gång notion öppnas ändras detta till ett kortare intervall. Siffran anger mikrosekunder. 
+const INTERVAL = 60000; // orginalet var 86400000 vilket motsvarar 24h, men då den börjar om varje gång notion öppnas ändras detta till ett kortare intervall. Siffran anger mikrosekunder. 
 
 function dispalyQuote(){
 
@@ -74,7 +74,7 @@ function dispalyQuote(){
     quotes.forEach((quote, i) => {
         setTimeout(() => {
             document.getElementById('widget').innerHTML =quote;
-        }, ((Math.random() * 17) + 1 )   * INTERVAL);  
+        }, ((Math.random() * 17) + 1 )   * INTERVAL);  // detta randomiserar ordningen som citaten visas. Math.random() ger en siffra mellan 0(inklusive) och 1(exklusive), alltså blir det 0.999999... detta multipliceras med 17 (antalet citat) och sedan plus ett för att det aldrig ska bli 0 och så att det kan bli 17.
     });
     }
 
