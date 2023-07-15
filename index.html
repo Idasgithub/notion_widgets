@@ -73,8 +73,8 @@ function dispalyQuote(){
     document.getElementById('widget').innerHTML =quotes[0];
     quotes.forEach((quote, i) => {
         setTimeout(() => {
-            document.getElementById('widget').innerHTML =quote;
-        }, ((Math.random() * 17) + 1 )   * INTERVAL);  // detta randomiserar ordningen som citaten visas. Math.random() ger en siffra mellan 0(inklusive) och 1(exklusive), alltså blir det 0.999999... detta multipliceras med 17 (antalet citat) och sedan plus ett för att det aldrig ska bli 0 och så att det kan bli 17.
+            document.getElementById('widget').innerHTML =quotes[ ((Math.random() * 17) )]; // Detta ger ett random citat. Math.random() ger en siffra mellan 0(inclusive) och 1(exclusive), alltså blir det aldrig riktigt 1. Vi multiplicerar med 17 då det finns 17 citat, listan börjar på index 0 vilket vi får om den fer 0*17, och slutar på index 16 vilket vi får om 0.99999... * 17, den kommer att se det som 16.
+        }, i * INTERVAL); 
     });
     }
 
